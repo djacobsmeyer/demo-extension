@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Network Traffic Monitor</title>
+  <style>
+    body {
+      width: 800px;
+      height: 600px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+      overflow-y: auto;
+    }
+    h1 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    #requestList {
+      list-style: none;
+      padding: 0;
+    }
+    .request-item {
+      border: 1px solid #ccc;
+      margin-bottom: 12px;
+      padding: 12px;
+      border-radius: 4px;
+    }
+    .request-item:hover {
+      border-color: #666;
+    }
+    .url {
+      word-break: break-all;
+      color: #0066cc;
+      margin-bottom: 5px;
+    }
+    .method {
+      display: inline-block;
+      font-weight: bold;
+      color: #009900;
+      margin-right: 10px;
+    }
+    .status {
+      display: inline-block;
+      font-weight: bold;
+    }
+    .status.success {
+      color: #009900;
+    }
+    .status.error {
+      color: #cc0000;
+    }
+    .timestamp {
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 5px;
+    }
+    .data-section {
+      margin-top: 8px;
+      background: #f5f5f5;
+      padding: 8px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+      white-space: pre-wrap;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+    .expand-btn {
+      margin-top: 5px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .controls {
+      margin-bottom: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .export-options {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .export-options select {
+      padding: 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>XHR Request & Response Monitor</h1>
+  <div class="controls">
+    <button id="clearBtn">Clear Requests</button>
+    <button id="refreshBtn">Refresh</button>
+    <div class="export-options">
+      <select id="exportDepth">
+        <option value="1">Basic Export</option>
+        <option value="2">Include Request Data</option>
+        <option value="3">Full Detail</option>
+      </select>
+      <button id="exportBtn">Export CSV</button>
+    </div>
+  </div>
+  <ul id="requestList"></ul>
+  <script src="popup.js"></script>
+</body>
+</html>
